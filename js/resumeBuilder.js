@@ -91,8 +91,8 @@ if(bio["skills"].length > 0){
   $("#skills").append(formattedSkills);
 }
 */
-var formattedemployer = HTMLheaderemployer.replace("%data%", "Mollie Marie Pettit");
-$("#header").append(formattedemployer);
+var formattedEmployer = HTMLheaderEmployer.replace("%data%", "Mollie Marie Pettit");
+$("#header").append(formattedEmployer);
 //Got the above two lines of code from forum. Not sure if it's in the right place
 
 var skills = ["awesomeness", "programming", "teaching", "CSS"];
@@ -111,6 +111,55 @@ var bio = {
 	"skills": skills
 };
 
+
+//if statement Quiz
+if(bio.skills.length > 0) {
+	$("#header").append(HTMLskillsStart);
+
+	var formattedSkill = HTMLskills.replace("%data%",
+		bio.skills[0]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%",
+		bio.skills[1]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%",
+		bio.skills[2]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%",
+		bio.skills[3]);
+	$("#skills").append(formattedSkill);
+}
+
+
+var work = {
+    "jobs": [
+        {
+            "employer": "Baker Hughes",
+            "city": "Abu Dhabi, UAE",
+            "title": "Geoscientist",
+            "years": "2014 - Present"
+        },
+        {
+            "employer": "Stanford University",
+            "city": "Palo Alto, CA, USA",
+            "title": "Researcher",
+            "years": "2010-2013"
+        }
+    ]
+}
+
+//for-in loop Quiz
+var formattedWork;
+for(job in work.jobs){
+  $('#workExperience').append(HTMLworkStart);
+  var formattedEmployer2 = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+  var formattedEmployerTitle = formattedEmployer2 + formattedTitle;
+
+  $(".work-entry:last").append(formattedEmployerTitle);
+}
+
+/*
 var education = {
 	"schools": [
 		{
@@ -149,27 +198,6 @@ var education = {
 	]
 }
 
-var work = {
-    "jobs": [
-        {
-            "employer": "Baker Hughes",
-            "city": "Abu Dhabi, UAE",
-            "title": "Geoscientist",
-            "years": "2014 - Present"
-        },
-        {
-            "employer": "Stanford University",
-            "city": "Palo Alto, CA, USA",
-            "title": "Researcher",
-            "years": "2010-2013"
-        }
-    ]
-}
-var formattedWork;
-for(jobs in work){
-  formattedWork = HTMLworkStart.replace("%data%",work["jobs"]);
-  $("main").append(formattedWork);
-}
 
 var projects = {
 	"projects": [
@@ -243,23 +271,6 @@ var projects = {
 	]
 }
 
-
-if(bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
-
-	var formattedSkill = HTMLskills.replace("%data%",
-		bio.skills[0]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%",
-		bio.skills[1]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%",
-		bio.skills[2]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%",
-		bio.skills[3]);
-	$("#skills").append(formattedSkill);
-}
 /*
 for (var job in work.jobs) {
 
