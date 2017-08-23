@@ -192,6 +192,7 @@ span {
 @media only screen and (max-width: 750px) {
   #lets-connect {
     margin-top: 10%;
+
   }
   .biopic {
     width: 150px;
@@ -219,3 +220,32 @@ span {
     display: block;
   }
 }
+
+li {
+  display:inline;
+  list-style: none;
+}
+
+#lets-connect {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+/*twitter styling*/
+#twitter-news {border:1px solid #1155cc;margin: 0 0 1em; padding: 15px; float: left; width: 336px;font-size: 1.25em;}
+2
+#twitter-news a {text-decoration: none;}
+3
+#twitter-news a:hover {text-decoration: underline !important; color: #111;}
+4
+#twitter-news ul, #twitter-news ul li {margin: 0px 0px 1em !important; padding: 0px !important; float: left; width: 100%; list-style: none; background: url(none);}
+5
+#twitter-news .user,#twitter-news .interact {display: none;}
+6
+#twitter-news p {float: left; margin: 0; padding: 0;}
+7
+#twitter-news .timePosted {margin: 0; font-size: 1em; color: #999;}

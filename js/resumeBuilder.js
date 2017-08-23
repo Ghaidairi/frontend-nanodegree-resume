@@ -1,283 +1,211 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
-
-///$("#main").append("Ghaida");
-var awesomeThoughts = "I am Ghaida and I am AWESOME";
-console.log(awesomeThoughts);
-var funThoughts = awesomeThoughts.replace("AWESOME", "FUN");
-$("#main").append(funThoughts);
-//$("#main").append(awesomeThoughts);
-*/
-/*
-var formattedName = HTMLheaderName.replace("%data%", "Ghaida Aldairi");
-var formattedRole = HTMLheaderRole.replace("%data%", "Web Developer");
-$("#header").append(formattedName);
-$("#header").append(formattedRole);
-
+//__________________ bio obj _______________________
 var bio = {
-  "name": "Ghaida",
-  "role": "Web Developer",
-  "contactInfo": {
-    "twitter":"ghaidairi",
-    "mobile":"0504892748"
-  },
-  "pictureURL": "https://images-na.ssl-images-amazon.com/images/I/31YYKAVK11L._SY300_.jpg",
-  "message": "Hello there",
-  "skills": ["paint"]
-}
-if(bio["skills"].length > 0){
-  $("#header").append(HTMLskillsStart);
-
-  var
-}
-$("#main").prepend(bio);
-
-*/
-/*
-var work = {};
-  work.position = "manager";
-  work.employer = "Majed";
-  work.experiance = 5;
-  work.city = "alahsa";
-
-var education = {};
-  education["lastSchool"] = "nukbah";
-
-$("#main").append(work["position"]);
-$("#main").append(education.lastSchool);
-
-*/
-/* there is a mistake and I dont know it
-var education = {
-  "school": [
-    {
-  "name": "Ghaida",
-  "role": "Web Developer"
-  },{
-    "name": "Ghaida",
-    "role": "Web Developer"
-  }]
-}
-
-var work = {};
-  work.position = "manager";
-  work.employer = "Majed";
-  work.experiance = 5;
-  work.city = "alahsa";
-
-var project = {};
-    work.name = "maintanance";
-    work.department = "hr";
-    work.city = "alahsa";
-
-var skills = ["paint", "read"];
-var bio = {
-  "name": "Ghaida",
-  "role": "Web Developer",
-  "contactInfo": {
-    "twitter":"ghaidairi",
-    "mobile":"0504892748"
-  },
-  "pictureURL": "https://images-na.ssl-images-amazon.com/images/I/31YYKAVK11L._SY300_.jpg",
-  "message": "Hello there",
-  "skills": skills
-
-}
-
-if(bio["skills"].length > 0){
-  $("#header").append(HTMLskillsStart);
-
-  var formattedSkills = HTMLskills.replace("%data%",bio.skills[0]);
-  $("#skills").append(formattedSkills);
-}
-*/
-var formattedEmployer = HTMLheaderEmployer.replace("%data%", "Mollie Marie Pettit");
-$("#header").append(formattedEmployer);
-//Got the above two lines of code from forum. Not sure if it's in the right place
-
-var skills = ["awesomeness", "programming", "teaching", "CSS"];
-
-var bio = {
-	"name": "Mollie Marie Pettit",
-	"title": "Geoscientist",
-	"picture": "images/me.jpg",
-	"contacts": {
-		"mobile": "056-985-3123",
-		"email": "mollie.pettit@alumni.stanford.edu",
-		"github": "molliemarie",
-		"location": "Abu Dhabi, UAE"
-	},
-	"WelcomeMessage": "Welcome and stuff and stuff and stuff.",
-	"skills": skills
+  "name" : "Ghaida Aldairi",
+      "role" : "Web Developer",
+      "contacts" : {
+            "mobile": 0504923984,
+            "email": "Ghaidairi@hotmail.com",
+            "github": "Ghaidairi",
+            "twitter": "@Ghaidairi",
+            "location": "Dammam - KSA"
+          },
+      "welcomeMessage": "Welcome to my Resume",
+      "skills": ["Communication","Programming", "Photografer"],
+      "biopic": "images/personal.jpg"
 };
+//display header info
+bio.display = function(){
+  //Role and Name
+  var role = HTMLheaderRole.replace("%data%", bio.role);
+  $('#header').prepend(role);
+  var name = HTMLheaderName.replace("%data%", bio.name);
+  $('#header').prepend(name);
+  //Contact info
+  var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+  $('#topContacts').append(mobile);
+  $('#lets-connect').append(mobile);
+  var email = HTMLemail.replace("%data%", bio.contacts.email);
+  $('#topContacts').append(email);
+  $('#lets-connect').append(email);
+  var github = HTMLtwitter.replace("%data%", bio.contacts.github);
+  $('#topContacts').append(github);
+  $('#lets-connect').append(github);
+  var twitter = HTMLgithub.replace("%data%", bio.contacts.twitter);
+  $('#topContacts').append(twitter);
+  $('#lets-connect').append(twitter);
+  var location = HTMLlocation.replace("%data%", bio.contacts.location);
+  $('#topContacts').append(location);
+  $('#lets-connect').append(location);
+  //personal img
+  var img = HTMLbioPic.replace("%data%", bio.biopic);
+  $('#header').append(img);
+  //welcomeMessage
+  var welcomeM = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+  $('#header').append(welcomeM);
+  //skills
+  $('#header').append(HTMLskillsStart);
+  for(var i=0; i<bio.skills.length; i++){
+    var skill = HTMLskills.replace("%data%", bio.skills[i]);
+    $('#header').append(skill);
+  }
+};
+//call bio function
+bio.display();
 
 
-//if statement Quiz
-if(bio.skills.length > 0) {
-	$("#header").append(HTMLskillsStart);
-
-	var formattedSkill = HTMLskills.replace("%data%",
-		bio.skills[0]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%",
-		bio.skills[1]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%",
-		bio.skills[2]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%",
-		bio.skills[3]);
-	$("#skills").append(formattedSkill);
-}
-
-
+//__________________ work obj _______________________
 var work = {
-    "jobs": [
-        {
-            "employer": "Baker Hughes",
-            "city": "Abu Dhabi, UAE",
-            "title": "Geoscientist",
-            "years": "2014 - Present"
-        },
-        {
-            "employer": "Stanford University",
-            "city": "Palo Alto, CA, USA",
-            "title": "Researcher",
-            "years": "2010-2013"
-        }
-    ]
-}
-
-//for-in loop Quiz
-var formattedWork;
-for(job in work.jobs){
+  "jobs": [{"employer": "Al-jaber Eye and ENT specialist hospital",
+           "title": "COOP Trainee",
+           "location": "Alahsa - KSA",
+           "dates": "May 2015 - Augest 2015",
+           "description": "Cooperative Training Programme (COOP) is an important part of the talent management initiatives, and an essential component of our recruitment strategy to provide an opportunity for Saudi students to integrate their academic learning, theoretical knowledge learned in the classrooms and laboratories with some real work experience."
+         },
+          {"employer": "Abdulateef Alarfaj Holding Company",
+           "title": "IT specialist",
+           "location": "Alahsa - KSA",
+           "dates": "2017 - Present",
+           "description": "An information technology specialist applies technical expertise to the implementation, monitoring, or maintenance of IT systems. Specialists typically focus on a specific computer network, database, or systems administration function."
+         }]
+};
+//display work experiance
+work.display = function(){
   $('#workExperience').append(HTMLworkStart);
-  var formattedEmployer2 = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-  var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-  var formattedEmployerTitle = formattedEmployer2 + formattedTitle;
-
-  $(".work-entry:last").append(formattedEmployerTitle);
-}
-
-/*
-var education = {
-	"schools": [
-		{
-			"school": "Stanford University",
-			"city": "Palo Alto",
-			"degree": "Masters",
-			"major": ["Geology"]
-		},
-		{
-			"school": "West Virginia University",
-			"city": "Morgantown",
-			"degree": "BS",
-			"major": ["Mathematics", "Geology"]
-		}
-	],
-	"online courses": [
-		{
-			"class":"Javascript Basics",
-			"school":"Udacity",
-			"dates": 2015,
-			"url": "https://www.udacity.com/course/ud804"
-		},
-		{
-			"class": "Intro to HTML and CSS",
-			"school": "Udacity",
-			"dates": 2015,
-			"url": "https://www.udacity.com/course/ud304"
-
-		},
-		{
-			"class": "How to Use Git and GitHub",
-			"school": "Udacity",
-			"dates": 2015,
-			"url": "https://www.udacity.com/course/ud775"
-		}
-	]
-}
+  for(var i=0; i<work.jobs.length; i++){
+    var workEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer);
+    var workTitle = HTMLworkTitle.replace("%data%", work.jobs[i].title);
+    $('.work-entry').append(workEmployer+workTitle);
+    var workDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
+    $('.work-entry').append(workDates);
+    var workLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
+    $('.work-entry').append(workLocation);
+    var workDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+    $('.work-entry').append(workDescription);
+  }
+};
+//call work function
+work.display();
 
 
+//__________________ projects obj _______________________
 var projects = {
-	"projects": [
-		{
-			"name":"Mockup to Website",
-			"number":"P1",
-			"description":"You will be provided with a design
-			mockup as a PDF-file and must replicate that design
-			in HTML and CSS. You will develop a responsive website
-			that will display images, descriptions and links to each
-			of the portfolio projects you will complete throughout the
-			course of the Front-End Web Developer Nanodegree."
-		},
-		{
-			"name":"Interactive Resume",
-			"number":"P2",
-			"description":"You'll demonstrate your mastery of the
-			language's syntax through a series of challenges. Each
-			multipart problem mimics a real-life challenge that
-			front-end developers face. You'll be required to write
-			clean code and to apply your knowledge of variables,
-			objects, JSON, functions and control flow to successfully
-			solve the challenges."
-		},
-		{
-			"name":"Classic Arcade Game Clone",
-			"number": "P3",
-			"description":"You will be provided with visual assets
-			and a game loop engine; using these tools you must add
-			a number of entities to the game including the player
-			characters and enemies to recreate the classic arcade
-			game Frogger."
-		},
-		{
-			"name": "Website Optimization",
-			"number":"P4",
-			"description": "You will optimize a provided website
-			with a number of optimization- and performance-related
-			issues so that it achieves a target PageSpeed score and
-			runs at 60 frames per second."
-		},
-		{
-			"name":"Neighborhood Map Project",
-			"number":"P5",
-			"description": "You will develop a single-page
-			application featuring a map of your neighborhood or a
-			neighborhood you would like to visit. You will then add
-			additional functionality to this application, including:
-			map markers to identify popular locations or places you’d
-			like to visit, a search function to easily discover these
-			locations, and a listview to support simple browsing of all
-			locations. You will then research and implement third-party
-			APIs that provide additional information about each of these
-			locations (such as StreetView images, Wikipedia articles, Yelp
-			reviews, etc)."
-		},
-		{
-			"name": "Feed Reader Testing",
-			"number": "P6",
-			"description": "In this project, you will be learning
-			about testing with Javascript. Testing is an important
-			part of the development process and many organizations
-			practice a standard known as 'test-driven development'
-			or TDD. This is when developers write tests first,
-			before they ever start developing their application.
-			Whether you work in an organization that writes tests
-			extensively to inform product development or one that
-			uses tests to encourage iteration, testing has become an
-			essential skill in modern web development!"
-		}
-	]
-}
+  "projects": [{
+    "title": "1.Establishing a web developer mindset",
+    "dates": "July-8-2017",
+    "description": "In Establishing a Web Developer Mindset, you'll learn about the history of the languages you'll be studying, the Web, and our place today as Web Developers in an evolving story. After learning about problem solving strategies, you'll write a letter to your future self describing how you can overcome any challenge ahead in this Nanodegree, and set some goals for what you want to achieve. You'll also learn how to get feedback from Udacity Project Reviewers. Go ahead, get started now!",
+    "images": []
+  },
+  {
+    "title": "2.Animal trading cards",
+    "dates": "July-15-2017",
+    "description": "The design prototype used in this project is inspired by trading cards and features a fish you might recognize from a popular animated film. You’ll be creating the card and swapping out the fish with an animal of your choice.",
+    "images": ["images/animal.png"]
+  },
+  {
+    "title": "3.Build a portfolio site",
+    "dates": "July-29-2017",
+    "description": "The first thing potential employers look for isn’t which school you attended or what your GPA was; they want to see what you’ve built! You need a professional portfolio to show off your skills.",
+    "images": ["images/portfolio1.png", "images/portfolio2.png"]
+  },
+  {
+    "title": "4.Online resume",
+    "dates": "Augest-12-2017",
+    "description": "The resume you build will not only help you build important skills, but will also make it easy to show employers why you’re perfect for the job. As you progress through this nanodegree you can update this resume with your new skills and projects.",
+    "images": []
+  }
+]
+};
+//display projects info
+projects.display = function(){
+  $('#projects').append(HTMLprojectStart);
+  for(var i=0; i<projects.projects.length; i++){
+    var projectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
+    $('.project-entry').append(projectTitle);
+    var projectDates = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
+    $('.project-entry').append(projectDates);
+    var projectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
+    $('.project-entry').append(projectDescription);
+    if(projects.projects[i].images.length>0){
+      for(var j=0; j<projects.projects[i].images.length; j++){
+        var projectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images[j]);
+        $('.project-entry').append(projectImage);
+      }
+    }
+  }
+};
+//call projects function
+projects.display();
 
-/*
-for (var job in work.jobs) {
 
-    $("#workExperience").append(HTMLworkStart);
+//__________________ education obj _______________________
+var education = {
+  "schools": [{
+         "name": "King Faisal University",
+         "location": "Alahsa-Hufuf",
+         "degree": "bachelor",
+         "majors": ["Computer Science"],
+         "dates": "2012-2017",
+         "url": "https://www.kfu.edu.sa/ar/pages/email.aspx"
+       },
+       {
+         "name": "AlNukbah Modern School",
+         "location": "Alahsa-Qatar st.",
+         "degree": "High school",
+         "majors": ["Science"],
+         "dates": "2009-2011",
+         "url": "http://alnukhbah.net/Ar/"
+        }
+       ],
+  "onlineCourses": [{
+         "title": "[Front-End Web Developer]",
+         "school": "Udacity",
+         "dates": "July 2017 - Present",
+         "url": "https://www.udacity.com/"
+       }
+       ]
+};
+education.display = function(){
+  $('#education').append(HTMLschoolStart);
+  for(var i=0; i<education.schools.length; i++){
+    var schoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
+    var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+    $('.education-entry').append(schoolName+schoolDegree);
+    var schoolDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
+    $('.education-entry').append(schoolDates);
+    var schoolLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
+    $('.education-entry').append(schoolLocation);
+    var schoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].majors);
+    $('.education-entry').append(schoolMajor);
+  }
 
-    var formattedEmployer= HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-    var formattedTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
+  $('#education').append(HTMLonlineClasses);
+  for(var c=0; c<education.onlineCourses.length; c++){
+    var onlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[c].title);
+    var onlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[c].school);
+    $('#education').append(onlineTitle+onlineSchool);
+    var onlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[c].dates);
+    $('#education').append(onlineDates);
+    var onlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[c].url);
+    $('#education').append(onlineURL);
+  }
+};
+education.display();
 
-    var formattedEmployerTitle = formattedEmployer + formattedTitle;
-*/
+$('#main').append(internationalizeButton);
+$('#mapDiv').append(googleMap);
+
+//
+// var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+// var mapOptions = {
+//   zoom: 4,
+//   center: myLatlng
+// }
+// var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+//
+// var marker = new google.maps.Marker({
+//     position: myLatlng,
+//     title:"Hello World!"
+// });
+//
+// // To add the marker to the map, call setMap();
+// marker.setMap(map);
